@@ -27,3 +27,4 @@ entrypoint: myapp
 
 - `APP_NAME`: the name of the binary file that will be created
 - `BUILD_ARGS`: additional arguments to pass to the `cargo build` command
+- `CARGO_TARGET`: the target to build for (default: `x86_64-unknown-linux-musl`)
