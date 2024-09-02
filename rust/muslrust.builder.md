@@ -11,11 +11,11 @@ To use this template, create a new file in your project's, extend it in your pro
 
 ```yml
 extend:
-	- https://raw.githubusercontent.com/lenra-io/dofigen-hub/main/rust/muslrust.builder.yml
+  - https://raw.githubusercontent.com/lenra-io/dofigen-hub/main/rust/muslrust.builder.yml
 builders:
   muslrust:
-		env:
-			APP_NAME: myapp
+    env:
+      APP_NAME: myapp
 copy:
   - fromBuilder: muslrust
     paths: "/tmp/myapp"
