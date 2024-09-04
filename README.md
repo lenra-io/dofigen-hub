@@ -1,4 +1,4 @@
-# dofigen-hub
+# Dofigen Hub
 
 A Dofigen templates hub for many kinds of apps.
 
