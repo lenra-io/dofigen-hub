@@ -1,4 +1,4 @@
-# muslrust Image
+# cli-from-scratch image
 
 This template is used to build a Rust project image from scratch using the muslrust image.
 The muslrust image is a Docker image that contains the musl libc and the musl-gcc compiler.
@@ -6,11 +6,11 @@ The muslrust image is a Docker image that contains the musl libc and the musl-gc
 
 ## Getting started
 
-To use this template, create a new file in your project's, extend it in your project Dofigen file, define the `APP_NAME` environment variable and copy the resulting binary from the `/tmp` directory:
+To use this template, extend it in your project's Dofigen file, define the `APP_NAME` environment variable:
 
 ```yml
 extend:
-  - https://raw.githubusercontent.com/lenra-io/dofigen-hub/main/rust/muslrust.image.yml
+  - https://raw.githubusercontent.com/lenra-io/dofigen-hub/main/rust/cli-from-scratch.image.yml
 globalArg:
   APP_NAME: myapp
 ```

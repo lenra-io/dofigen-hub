@@ -1,4 +1,4 @@
-# muslrust Builder
+# muslrust builder
 
 This template is used to build a Rust project using the muslrust image.
 The muslrust image is a Docker image that contains the musl libc and the musl-gcc compiler.
@@ -7,20 +7,17 @@ It's a great way to build a Rust binary in a Docker container from `scratch`.
 
 ## Getting started
 
-To use this template, create a new file in your project's, extend it in your project Dofigen file, define the `APP_NAME` environment variable and copy the resulting binary from the `/tmp` directory:
+To use this template, extend it in your project's Dofigen file, define the `APP_NAME` global argument and copy the resulting binary from the `/tmp` directory:
 
 ```yml
 extend:
   - https://raw.githubusercontent.com/lenra-io/dofigen-hub/main/rust/muslrust.builder.yml
 globalArg:
   APP_NAME: myapp
-arg:
-  APP_NAME:
 copy:
   - fromBuilder: muslrust
-    paths: "/tmp/${APP_NAME}"
+    paths: "/tmp/myapp"
     target: "/bin/"
-entrypoint: ${APP_NAME}
 ```
 
 ## Build arguments

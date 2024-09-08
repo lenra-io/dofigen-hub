@@ -1,0 +1,26 @@
+context:
+  - /src
+  - /package.json
+  - /bun.lockb
+ignore:
+  - /src/**/*.test.js
+  - /src/**/*.test.ts
+  - /src/**/*.test.jsx
+  - /src/**/*.test.tsx
+globalArg:
+  BUN_VERSION: latest
+builders:
+  bun-install:
+    fromImage: oven/bun:${BUN_VERSION}
+    workdir: /app
+    bind:
+      - package.json
+      - bun.lockb
+    run:
+      # Install dependencies
+      - bun install --production --frozen-lockfile
+      # move the node_modules directory into /tmp
+      - mv node_modules /tmp/
+    cache:
+      # Bun cache
+      - /home/bun/.bun/install/cache

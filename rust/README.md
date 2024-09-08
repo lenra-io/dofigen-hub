@@ -8,4 +8,4 @@ Rust templates:
 
 ## Images
 
-- [muslrust](muslrust.image.md): Create a Rust image from scratch using the musl libc and the musl-gcc compiler.
+- [cli-from-scratch](cli-from-scratch.image.md): Create a Rust image from scratch using the musl libc and the musl-gcc compiler.

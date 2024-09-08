@@ -1,0 +1,12 @@
+extend:
+  - ./bun-install.builder.yml
+fromImage: oven/bun:${BUN_VERSION}
+workdir: /app
+copy:
+  - fromBuilder: bun-install
+    paths: /tmp/node_modules
+    target: node_modules
+  - paths: "."
+entrypoint:
+  - bun
+  - start

@@ -22,7 +22,7 @@ builders:
         fi
       # Build with musl to work with scratch
       - cargo build --release ${BUILD_ARGS}
-      # copy the generated binary outside of the target directory. If not the other stages won't be able to find it since it's in a cache volume
+      # move the generated binary outside of the target directory. If not the other stages won't be able to find it since it's in a cache volume
       - mv target/${CARGO_TARGET}/release/${APP_NAME} /tmp/
     cache:
       # Cargo cache
