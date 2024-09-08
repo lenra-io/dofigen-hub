@@ -1,5 +1,11 @@
 # Rust
 
-Rust projects and builders templates:
+Rust templates:
 
-- [muslrust](muslrust.builder.md): Build a Rust project using the muslrust image.
+## Builders
+
+- [muslrust](muslrust.builder.md): Build a Rust project using the musl libc and the musl-gcc compiler.
+
+## Images
+
+- [muslrust](muslrust.image.md): Create a Rust image from scratch using the musl libc and the musl-gcc compiler.

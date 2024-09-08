@@ -1,0 +1,9 @@
+extend:
+  - ./muslrust.builder.yml
+arg:
+  APP_NAME:
+copy:
+  - fromBuilder: muslrust
+    paths: "/tmp/${APP_NAME}"
+    target: "/bin/"
+entrypoint: ${APP_NAME}
