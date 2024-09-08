@@ -11,6 +11,12 @@ extend:
   - https://raw.githubusercontent.com/lenra-io/dofigen-hub/main/js-ts/bun-install.builder.yml
 copy:
   - fromBuilder: bun-install
-    paths: "/tmp/node_modules"
-    target: "/app/node_modules"
+    paths: /tmp/node_modules
+    target: /app/node_modules
 ```
+
+## Build arguments
+
+They must be defined in the `globalArg` section of the Dofigen file.
+
+- `BUN_VERSION`: the version of Bun to use (default is `latest`)

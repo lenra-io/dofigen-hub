@@ -16,8 +16,8 @@ globalArg:
   APP_NAME: myapp
 copy:
   - fromBuilder: muslrust
-    paths: "/tmp/myapp"
-    target: "/bin/"
+    paths: /tmp/myapp
+    target: /bin/
 ```
 
 ## Build arguments

@@ -1,6 +1,6 @@
 context:
-  - "/src"
-  - "/Cargo.*"
+  - /src
+  - /Cargo.*
 builders:
   muslrust:
     fromImage: clux/muslrust:stable
