@@ -7,22 +7,23 @@ It's a great way to build a Rust binary in a Docker container from `scratch`.
 
 ## Getting started
 
-To use this template, extend it in your project's Dofigen file, define the `APP_NAME` global argument and copy the resulting binary from the `/tmp` directory:
+To use this template, extend it in your project's Dofigen file, define the `APP_NAME` argument and copy the resulting binary from the `/tmp` directory:
 
 ```yml
-extend:
-  - https://raw.githubusercontent.com/lenra-io/dofigen-hub/main/rust/muslrust.builder.yml
-globalArg:
-  APP_NAME: myapp
+extend: https://raw.githubusercontent.com/lenra-io/dofigen-hub/main/rust/muslrust.builder.yml
+builders:
+  muslrust:
+    arg:
+      APP_NAME: myapp
 copy:
-  - fromBuilder: muslrust
-    paths: /tmp/myapp
-    target: /bin/
+  fromBuilder: muslrust
+  paths: /tmp/myapp
+  target: /bin/
 ```
 
 ## Build arguments
 
-They must be defined in the `globalArg` section of the Dofigen file.
+They must be defined in the `arg` field of the `muslrust` builder:
 
 - `APP_NAME`: the name of the binary file that will be created
-- `BUILD_ARGS`: additional arguments to pass to the `cargo build` command
+- `BUILD_ARGS` (optional): additional arguments to pass to the `cargo build` command

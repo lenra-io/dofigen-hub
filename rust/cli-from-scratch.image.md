@@ -9,15 +9,20 @@ The muslrust image is a Docker image that contains the musl libc and the musl-gc
 To use this template, extend it in your project's Dofigen file, define the `APP_NAME` environment variable:
 
 ```yml
-extend:
-  - https://raw.githubusercontent.com/lenra-io/dofigen-hub/main/rust/cli-from-scratch.image.yml
-globalArg:
+extend: https://raw.githubusercontent.com/lenra-io/dofigen-hub/main/rust/cli-from-scratch.image.yml
+builders:
+  muslrust:
+    arg:
+      APP_NAME: myapp
+arg:
   APP_NAME: myapp
 ```
 
 ## Build arguments
 
-They must be defined in the `globalArg` section of the Dofigen file.
+Here are the Docker build arguments:
 
-- `APP_NAME`: the name of the binary file that will be created
-- `BUILD_ARGS`: additional arguments to pass to the `cargo build` command
+- `APP_NAME`: the name of the binary file that will be created. Must be defined in the `muslrust` builder and in the runtime arguments.
+- `BUILD_ARGS` (optional): additional arguments to pass to the `cargo build` command. Can be defined in the `muslrust` builder.
+
+Unfortunately, global arguments are not supported yet.

@@ -1,0 +1,6 @@
+extend: ./bun-install.builder.yml
+builders:
+  bun-binary:
+    fromBuilder: bun-install
+    copy: "."
+    run: bun build --compile --minify --sourcemap ${MAIN_FILE} --outfile /tmp/${APP_NAME}
