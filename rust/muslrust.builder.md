@@ -16,9 +16,9 @@ builders:
     arg:
       APP_NAME: myapp
 copy:
-  fromBuilder: muslrust
-  paths: /tmp/myapp
-  target: /bin/
+  - fromBuilder: muslrust
+    paths: /tmp/myapp
+    target: /bin/
 ```
 
 ## Build arguments

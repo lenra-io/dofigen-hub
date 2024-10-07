@@ -11,8 +11,8 @@ extend: https://raw.githubusercontent.com/lenra-io/dofigen-hub/main/jvm/maven-pa
 fromImage: eclipse-temurin:17-jre-alpine
 workdir: /app
 copy:
-  fromBuilder: maven-package
-  paths: /tmp/app.jar
-  target: app.jar
+  - fromBuilder: maven-package
+		paths: /tmp/app.jar
+		target: app.jar
 cmd: [ java, -jar, app.jar ]
 ```
