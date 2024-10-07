@@ -2,7 +2,7 @@ extend: ./muslrust.builder.yml
 env:
   PATH: /bin
 copy:
-  fromBuilder: muslrust
-  paths: /tmp/${APP_NAME}
-  target: /bin/
+  - fromBuilder: muslrust
+    paths: /tmp/${APP_NAME}
+    target: /bin/
 entrypoint: /bin/${APP_NAME}
