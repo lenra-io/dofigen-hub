@@ -18,7 +18,7 @@ Here is an example for Java 21:
 ```yml
 extend: https://raw.githubusercontent.com/lenra-io/dofigen-hub/main/jvm/maven-jar.image.yml
 builders:
-	maven-package:
-		from: maven:3-eclipse-temurin-21-alpine
+  maven-package:
+    from: maven:3-eclipse-temurin-21-alpine
 fromImage: eclipse-temurin:21-jre-alpine
 ```
