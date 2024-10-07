@@ -1,0 +1,20 @@
+context:
+  - /src
+  - /package.json
+  - /bun.lockb
+ignore:
+  - /src/**/*.test.js
+  - /src/**/*.test.ts
+  - /src/**/*.test.jsx
+  - /src/**/*.test.tsx
+builders:
+  bun-install:
+    fromImage: oven/bun
+    workdir: /app
+    bind:
+      - package.json
+      - bun.lockb
+    # Install dependencies
+    run: bun install --production --frozen-lockfile
+    # Bun cache
+    cache: /home/bun/.bun/install/cache

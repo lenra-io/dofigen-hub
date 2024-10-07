@@ -1,0 +1,7 @@
+extend: ./bun-install.builder.yml
+fromImage: bun-install
+workdir: /app
+copy: "."
+entrypoint:
+  - bun
+  - start

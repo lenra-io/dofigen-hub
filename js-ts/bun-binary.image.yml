@@ -1,0 +1,8 @@
+extend: ./bun-binary.builder.yml
+fromImage: debian:bullseye-slim
+workdir: /app
+copy:
+  - fromBuilder: bun-binary
+    paths: /tmp/${APP_NAME}
+    target: /bin/
+entrypoint: /bin/${APP_NAME}

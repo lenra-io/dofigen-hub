@@ -1,0 +1,17 @@
+context:
+  - /pom.xml
+  - /src/main/
+builders:
+  maven-package:
+    fromImage: maven:3-eclipse-temurin-17-alpine
+    workdir: /app
+    root:
+      bind:
+        - pom.xml
+        - src
+      run:
+        - mvn package -DskipTests
+        - mv target/*.jar /tmp/app.jar
+      cache:
+        - /root/.m2
+        - target

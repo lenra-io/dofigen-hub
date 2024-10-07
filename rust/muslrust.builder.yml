@@ -1,0 +1,30 @@
+context:
+  - /src
+  - /Cargo.*
+builders:
+  muslrust:
+    fromImage: clux/muslrust:stable
+    arg:
+      TARGETPLATFORM: 
+      CARGO_TARGET: x86_64-unknown-linux-musl
+    workdir: /app
+    bind:
+      - Cargo.toml
+      - Cargo.lock
+      - src/
+    run:
+      - |
+        if [ "${TARGETPLATFORM}" = "linux/amd64" ]; then
+          export CARGO_TARGET="x86_64-unknown-linux-musl"
+        elif [ "${TARGETPLATFORM}" = "linux/arm64" ]; then
+          export CARGO_TARGET="aarch64-unknown-linux-musl"
+        fi
+      # Build with musl to work with scratch
+      - cargo build --release ${BUILD_ARGS}
+      # move the generated binary outside of the target directory. If not the other stages won't be able to find it since it's in a cache volume
+      - mv target/${CARGO_TARGET}/release/${APP_NAME} /tmp/
+    cache:
+      # Cargo cache
+      - /home/rust/.cargo
+      # build cache
+      - /app/target
